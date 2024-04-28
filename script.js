@@ -1,15 +1,14 @@
 // set up the dimension for the chart
-const margin = { top: 60, right: 40, bottom: 60, left: 100}
+const margin = { top: 60, right: 40, bottom: 60, left: 60}
 const width = 1000 - margin.left - margin.right
 const height = 600 - margin.top - margin.bottom
 
 
  // create svg container
  const svg = d3.select("#chart").append("svg")
- .attr("width", width + margin.left + margin.right)
- .attr("height", height + margin.top + margin.bottom)
- .attr("class", "svg")
-
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    
 
 
 //fetch json data
@@ -31,12 +30,13 @@ d3.json('iris dataset.json')
 
     svg.append("g")
         .attr("class", "x-axis")
-        .attr("transform", `translate(0, ${height})`)
+        .attr("transform", `translate(${margin.left}, ${height + margin.top})`)
         .call(xAxis)
 
     svg.append("g")
-    .attr("class", "y-axis")
-    .call(yAxis)
+        .attr("class", "y-axis")
+        .attr("transform", `translate(${margin.left}, ${margin.top})`)
+        .call(yAxis)
 
    
     svg.selectAll("circle")
@@ -47,6 +47,7 @@ d3.json('iris dataset.json')
         .attr("cy", d => yScale(d.sepal_width))
         .attr("r", 4)
         .attr("fill", "black")
+        .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
   
 
