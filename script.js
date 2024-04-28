@@ -8,6 +8,12 @@ const height = 600 - margin.top - margin.bottom
  const svg = d3.select("#chart").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
+
+//color scale
+const colorScale = d3.scaleOrdinal()
+    .domain(["setosa", "versicolor", "virginica"])
+    .range(["#b492ef", "#3c0c8f", "#c3c2f2"])
+
     
 
 
@@ -45,8 +51,8 @@ d3.json('iris dataset.json')
         .append("circle")
         .attr("cx", d => xScale(d.sepal_length))
         .attr("cy", d => yScale(d.sepal_width))
-        .attr("r", 4)
-        .attr("fill", "black")
+        .attr("r", 6)
+        .attr("fill", d => colorScale(d.species) )
         .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
   
