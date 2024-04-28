@@ -1,0 +1,59 @@
+body{
+    background-color: black;
+    margin:60px;
+    font-family: sans-serif;
+    display:flex;
+    flex-direction: column;
+    gap:40px;
+}
+
+h2{
+    color:beige;
+}
+
+p{
+    color:beige;
+}
+
+.card{
+    background-color: white;
+    border-radius: 20px;
+    padding: 30px;
+}
+
+.categories{
+    display:flex;
+    flex-direction: row;
+    gap: 24px;
+    padding: 24px 0;
+}
+
+.category{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+.dot {
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dot.Iris-setosa {
+    background-color: #b492ef;
+}
+  
+.dot.Iris-versicolor {
+    background-color: #3c0c8f;
+}
+  
+.dot.Iris-virginica {
+    background-color: #c3c2f2;
+}
+
+.svg{
+    padding-left: 48px;
+}

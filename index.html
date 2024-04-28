@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scatter plot with D3</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="session">
+        <h2>Iris Flower</h2>
+        <p>A small classic dataset from Fisher, 1936. One of the earliest known datasets used for evaluating classification methods.</p>
+        <div class="card">
+            <div id="controls">
+                <div id="x-control">
+                    <span>X:</span>
+                    <div id="x-menu"></div>
+                </div>
+                <div id="y-control">
+                    <span>Y:</span>
+                    <div id="y-menu"></div>
+                </div>
+            </div>
+
+            <div class="categories">
+                <div class="category">
+                    <span class="dot Iris-setosa"></span>
+                    <span class="category-label">Setosa</span>
+                </div>
+                <div class="category">
+                    <span class="dot Iris-versicolor"></span>
+                    <span class="category-label">Versicolor</span>
+                </div>
+                <div class="category">
+                    <span class="dot Iris-virginica"></span>
+                    <span class="category-label">Virginica</span>
+                </div>
+            </div>
+            
+            <div id="chart"></div>
+        </div>
+    </div>
+    
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
