@@ -56,7 +56,7 @@ function updateChart(xAxisProperty, yAxisProperty, data){
         .range([height, 0])
         .domain([d3.min(data, d => d[yAxisProperty]), d3.max(data, d => d[yAxisProperty])])
 
-    // Remove existing axes
+    // Remove existing axes before creating new one
     svg.select(".x-axis").remove();
     svg.select(".y-axis").remove();
 
@@ -74,7 +74,7 @@ function updateChart(xAxisProperty, yAxisProperty, data){
     .attr("transform", `translate(${margin.left}, ${margin.top})`)
     .call(yAxis)
 
-    // Remove existing circles
+    // Remove existing circles before creating new one
     svg.selectAll("circle").remove();
 
     svg.selectAll("circle")
@@ -85,7 +85,17 @@ function updateChart(xAxisProperty, yAxisProperty, data){
     .attr("cy", d => yScale(d[yAxisProperty]))
     .attr("r", 6)
     .attr("fill", d => colorScale(d.species) )
-    .attr("transform", `translate(${margin.left}, ${margin.top})`);
+    .attr("transform", `translate(${margin.left}, ${margin.top})`)
+    .on("mouseover", function(d){
+        /*console.log(d);*/
+        /*console.log(d3.select(this).datum());*/
+        var boundData = d3.select(this).datum();
+        d3.select(this).append("title")
+        .text(`X: ${boundData[xAxisProperty]}, Y: ${boundData[yAxisProperty]}, Species: ${boundData.species}`)
+    })
+    .on("mouseout", function(){
+        d3.select(this).select("title").remove()
+    })
 
 }
 
