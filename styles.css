@@ -42,6 +42,11 @@ p{
     gap: 24px;
 }
 
+select{
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
 .dot {
     height: 24px;
     width: 24px;
@@ -63,4 +68,10 @@ p{
 
 .svg{
     padding-left: 48px;
+}
+
+.source{
+
+    color:beige;
+    margin: 24px 0;
 }
